@@ -667,11 +667,122 @@ section {
 .footer-socials a:hover {
   color: var(--neon-blue);
   text-shadow: 0 0 10px var(--neon-blue);
-  transform: translateY(-5px) scale(1.1); /* moves up & scales slightly */
+  transform: translateY(-5px) scale(1.1); 
 }
 
 #footer p:last-child {
   margin-top: 20px;
   font-size: 0.9rem;
   color: var(--text-muted);
+}
+
+.hamburger {
+  display: none; /* hide on desktop */
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+/* ===== Mobile View ===== */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: space-between; /* logo left, hamburger right */
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+  }
+
+  .hamburger {
+    display: block;
+    font-size: 2rem; /* slightly bigger */
+    cursor: pointer;
+    color: var(--text-light);
+  }
+
+  .nav-links {
+    display: none; /* hidden initially */
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+    background: var(--bg-header); /* add background for mobile dropdown */
+    position: absolute;
+    top: 70px; /* below header */
+    right: 0;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li a {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text-light);
+  }
+
+  .nav-links.active {
+  display: flex;
+}
+
+
+  section {
+    padding: 5rem 1rem;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+    gap: 2rem;
+  }
+
+  .hero-left, .hero-right {
+    margin: 0;
+    text-align: center;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-left {
+    margin: 0 0 2rem 0;
+  }
+
+  .about-right {
+    margin: 0;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding: 10px 0;
+    left: 0 !important;
+  }
+
+  .timeline::after {
+    left: 0; 
+  }
+
+  .timeline-item::after {
+    left: 20px;
+    right: auto;
+  }
 }
